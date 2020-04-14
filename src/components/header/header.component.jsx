@@ -14,12 +14,17 @@ const Header = ({ currentUser }) => (
             <Link className='option' to='/shop'> CONTACT </Link>
             { currentUser ?
                 <div className='option'
-                onClick={() => auth.signOut()} > SIGN OUT </div>
+                onClick={() => SignedOut()} > SIGN OUT </div>
                 :
                 <Link className='option' to='/sign-in'> SIGN IN </Link> }
         </div>
     </div>
 )
+
+function SignedOut() {
+    alert('You have been successfully logged out.')
+    auth.signOut()
+}
 
 export default Header;
 

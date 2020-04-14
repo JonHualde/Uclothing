@@ -25,15 +25,16 @@ class App extends Component {
 
         userRef.onSnapshot(snapShot => {
           this.setState ({ 
-            currentUser: { id: snapShot.id,...snapShot.data() }
-            }, () => { console.log('waiting', this.state)
-          })
-        if (this.state.currentUser.displayName) {
-          alert(`Welcome to you ${this.state.currentUser.displayName}`) 
-        }
-      })
+            currentUser: { 
+              id: snapShot.id,
+              ...snapShot.data() 
+              }
+            })
+          if (this.state.currentUser.displayName) {
+            alert(`Welcome to you ${this.state.currentUser.displayName}`) 
+          }})
       } else {
-        this.setState ({ currentUser: userAuth }, () => console.log('waiting2', this.state))
+        this.setState ({ currentUser: userAuth })
       }
     })
   }
