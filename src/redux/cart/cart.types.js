@@ -1,0 +1,5 @@
+export const cartActionsTypes = {
+    TOGGLE_CART_HIDDEN: 'TOGGLE_CART_HIDDEN',
+    ADD_ITEMS_CART: 'ADD_ITEMS_CART',
+    CLEAR_ALL_BASKET: 'CLEAR_ALL_BASKET'
+}

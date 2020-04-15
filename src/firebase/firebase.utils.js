@@ -25,9 +25,9 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
     try {
       await userRef.set({
-        displayName,
-        email, 
         createAt,
+        displayName,
+        email,
         ...additionalData
       })
     } catch (error) {
