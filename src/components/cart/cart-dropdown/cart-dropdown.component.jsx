@@ -3,19 +3,24 @@ import { connect } from 'react-redux';
 import { clearAllBasket } from '../../../redux/cart/cart.actions.js';
 
 import CustomButtom from '../../custom-button/custom-button.component';
+import CartItem from '../cart-item/cart-item.component';
 import './cart-dropdown.styles.scss';
 
-const CartDropdown = ({ hidden, clearAllBasket }) => (
+const CartDropdown = ({ hidden, clearAllBasket, cartItems }) => (
         hidden ? null : 
         <div className='cart-dropdown'>
             <div className='cart-items'/>
+            { cartItems  
+            ? cartItems.map((item, index) => (
+                <CartItem key={index} item={item} /> )) 
+            : null }
             <CustomButtom>GO TO CHECKOUT</CustomButtom>
             <p onClick={clearAllBasket} > Clear all basket </p>
         </div> 
 )
 
-const mapStateToProps = ({ cart: { hidden } }) => ({
-     hidden
+const mapStateToProps = ({ cart: { hidden, cartItems } }) => ({
+     hidden, cartItems
 })
 
 const mapDispatchToProps = dispatch => ({
