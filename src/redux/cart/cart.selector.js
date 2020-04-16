@@ -21,7 +21,9 @@ export const selectCartItemsQuantity = createSelector(
             accumulatedQuantity + cartItem.quantity , 0)
 );
 
-
-
-// --------------- USER STATE --------------- //
-//const selectUser = state => state.user;
+export const selectCartItemsPrice = createSelector(
+    [selectCartItems],
+    cartItems => 
+        cartItems.reduce((accumulatedPrice, cartItem) => 
+            accumulatedPrice + ( cartItem.price * cartItem.quantity) , 0)
+);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { selectCurrentUser } from '../../redux/user/user.selector.js';
 
 import './header.styles.scss';
 import CartIcon from '../cart/cart-icon/cart-icon.component.jsx';
@@ -34,7 +35,7 @@ function SignedOut() {
 }
 
 const mapStateToProps = state => ({
-    currentUser: state.user.currentUser
+    currentUser: selectCurrentUser(state)
 })
 
 export default connect(mapStateToProps)(Header);
