@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { clearAllBasket } from '../../../redux/cart/cart.actions.js';
+import { selectCartItems, selectHidden } from '../../../redux/cart/cart.selector.js'; 
 
 import CustomButtom from '../../custom-button/custom-button.component';
 import CartItem from '../cart-item/cart-item.component';
@@ -19,8 +20,9 @@ const CartDropdown = ({ hidden, clearAllBasket, cartItems }) => (
         </div> 
 )
 
-const mapStateToProps = ({ cart: { hidden, cartItems } }) => ({
-     hidden, cartItems
+const mapStateToProps = ( state ) => ({
+        hidden: selectHidden(state),
+        cartItems: selectCartItems(state)
 })
 
 const mapDispatchToProps = dispatch => ({

@@ -14,16 +14,3 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     return [...cartItems, { ...cartItemToAdd, quantity: 1 }]
 }
 
-
-export const filterQuantity = (cartItems) => {
-    let data = 0;
-
-    if (cartItems) {
-        cartItems.map( cartItem => {
-            data = data + cartItem.quantity
-            console.log("data", data)
-        })
-        return data;
-    }
-    return [...cartItems]
-}
