@@ -29,3 +29,13 @@
     font-size: 36px;
   }
 }
+
+.warning-message {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0;
+  color: rgb(179, 6, 6);
+  text-transform: uppercase;
+}
