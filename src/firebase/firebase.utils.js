@@ -14,11 +14,10 @@ const config = {
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return 
-  // console.log('userAuth', userAuth)
-  // console.log('additional data', additionalData)
+  
   const userRef = firestore.doc(`users/${userAuth.uid}`)
   const snapShot = await userRef.get()
-  // console.log('snapshot', snapShot)
+
   if(!snapShot.exists) {
     const { displayName, email } = userAuth;
     const createAt = new Date();
@@ -36,6 +35,22 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return userRef;
 }
+
+// -------------- USE THIS FUNCTION TO PUSH DATA TO FIREBASE ---------------- // 
+// export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+//   const collectionRef = firestore.collection(collectionKey);
+
+//   const batch = firestore.batch();
+//   console.log('batch1', batch)
+//   objectsToAdd.forEach(object => {
+//     const newDocRef = collectionRef.doc();
+//     console.log('collectionRefDoc', newDocRef)
+//     batch.set(newDocRef, object);
+//   });
+
+//   return await batch.commit()
+// }
+
 
 firebase.initializeApp(config);
 
