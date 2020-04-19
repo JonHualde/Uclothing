@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
+//import { selectCollectionForPreview } from './redux/shop/shop.selector';
 
 import './App.css';
+//import styled from 'styled-components'; IMPORT STYLED COMPONENTS 
 
 import Homepage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
@@ -40,8 +42,13 @@ class App extends Component {
       } else {
         setCurrentUser (userAuth)
       }
-    })
+    
+    // --------- FUNCTION TO PUSH DATA TO FIREBASE IF NEEDED --------- // 
+      // addCollectionAndDocuments('collections', collections.map(
+      //        ({title, items})  =>  ({title, items}) ));
+    })  
   }
+
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
@@ -71,3 +78,25 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+// ---- EXAMPLE OF STYLED DIV ----- //
+// const Text = styled.div`
+//   font-size: 64px;
+// `;
+
+// Implement it this way into the class: 
+// <div>
+//   <Text> I AM HERE </Text> 
+// </div>
+
+// ------------- WE ALSO CAN PASS PROPS INTO THE ELEMENT TO AUTOMATICALLY RENDER A PARTICULAR STYLE. ------------
+
+// <div>
+//   <Text isActive={true}> I AM HERE </Text> 
+// </div>
+
+// const Text = styled.div`
+//   font-size: 64px;
+//   border: ${ ({ isActive }) => isActive ? '2px solid black' : '3px dashed green' };
+// `;
+// COMPONENT IS NOW ABLE TO LEVERAGE PROPS! 
