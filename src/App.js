@@ -33,20 +33,16 @@ class App extends Component {
           setCurrentUser ({ 
               id: snapShot.id,
               ...snapShot.data() 
-            })
+          })
             const { currentUser } = this.props;
             if (currentUser.displayName) {
               alert(`Welcome to you ${currentUser.displayName}`)}
               console.log('current', currentUser.displayName)
-          })
-      } else {
-        setCurrentUser (userAuth)
-      }
-    
-    // --------- FUNCTION TO PUSH DATA TO FIREBASE IF NEEDED --------- // 
-      // addCollectionAndDocuments('collections', collections.map(
-      //        ({title, items})  =>  ({title, items}) ));
-    })  
+        })
+      } 
+
+      setCurrentUser (userAuth);
+    });
   }
 
 
@@ -100,3 +96,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 //   border: ${ ({ isActive }) => isActive ? '2px solid black' : '3px dashed green' };
 // `;
 // COMPONENT IS NOW ABLE TO LEVERAGE PROPS! 
+
+// --------- FUNCTION TO PUSH DATA TO FIREBASE IF NEEDED --------- // 
+// addCollectionAndDocuments('collections', collections.map(
+//        ({title, items})  =>  ({title, items}) ));

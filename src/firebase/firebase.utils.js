@@ -11,7 +11,7 @@ const config = {
     messagingSenderId: "494551811377",
     appId: "1:494551811377:web:d6d791362ff5a8c92e1c10"
   };
-
+  
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return 
   
@@ -35,21 +35,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
   return userRef;
 }
-
-// -------------- USE THIS FUNCTION TO PUSH DATA TO FIREBASE ---------------- // 
-// export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
-//   const collectionRef = firestore.collection(collectionKey);
-
-//   const batch = firestore.batch();
-//   console.log('batch1', batch)
-//   objectsToAdd.forEach(object => {
-//     const newDocRef = collectionRef.doc();
-//     console.log('collectionRefDoc', newDocRef)
-//     batch.set(newDocRef, object);
-//   });
-
-//   return await batch.commit()
-// }
 
 export const convertCollectionSnapshotToMap = (collections) => {
   const transformedCollection = collections.docs.map( doc => {
@@ -79,3 +64,18 @@ provider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 export default firebase;
+
+// -------------- USE THIS FUNCTION TO PUSH DATA TO FIREBASE ---------------- // 
+// export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+//   const collectionRef = firestore.collection(collectionKey);
+
+//   const batch = firestore.batch();
+//   console.log('batch1', batch)
+//   objectsToAdd.forEach(object => {
+//     const newDocRef = collectionRef.doc();
+//     console.log('collectionRefDoc', newDocRef)
+//     batch.set(newDocRef, object);
+//   });
+
+//   return await batch.commit()
+// }
