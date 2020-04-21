@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { setCurrentUser } from './redux/user/user.actions';
+import { googleSignInStart } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
 //import { selectCollectionForPreview } from './redux/shop/shop.selector';
 
@@ -23,26 +23,26 @@ class App extends Component {
   unsubscribeFromAuth = null
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
+    // const { setCurrentUser } = this.props;
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth)
+    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    //   if (userAuth) {
+    //     const userRef = await createUserProfileDocument(userAuth)
 
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser ({ 
-              id: snapShot.id,
-              ...snapShot.data() 
-          })
-            const { currentUser } = this.props;
-            if (currentUser.displayName) {
-              alert(`Welcome to you ${currentUser.displayName}`)}
-              console.log('current', currentUser.displayName)
-        })
-      } 
+    //     userRef.onSnapshot(snapShot => {
+    //       setCurrentUser ({ 
+    //           id: snapShot.id,
+    //           ...snapShot.data() 
+    //       })
+    //         const { currentUser } = this.props;
+    //         if (currentUser.displayName) {
+    //           alert(`Welcome to you ${currentUser.displayName}`)}
+    //           console.log('current', currentUser.displayName)
+    //     })
+    //   } 
 
-      setCurrentUser (userAuth);
-    });
+    //   setCurrentUser (userAuth);
+    // });
   }
 
 
@@ -70,10 +70,12 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  googleSignInStart: user => dispatch(googleSignInStart(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
 
 // ---- EXAMPLE OF STYLED DIV ----- //
 // const Text = styled.div`
