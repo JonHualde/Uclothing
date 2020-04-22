@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { googleSignInStart } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selector';
-//import { selectCollectionForPreview } from './redux/shop/shop.selector';
 
 import './App.css';
 //import styled from 'styled-components'; IMPORT STYLED COMPONENTS 
@@ -15,36 +13,11 @@ import Header from './components/header/header.component.jsx';
 import SignInAndSignUpPage from './pages/Sign-in-and-sign-up/Sign-in-and-sign-up.component.jsx';
 import CheckoutPage from './pages/checkoutpage/checkout.component.jsx';
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 
 class App extends Component {
 
   unsubscribeFromAuth = null
-
-  componentDidMount() {
-    // const { setCurrentUser } = this.props;
-
-    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-    //   if (userAuth) {
-    //     const userRef = await createUserProfileDocument(userAuth)
-
-    //     userRef.onSnapshot(snapShot => {
-    //       setCurrentUser ({ 
-    //           id: snapShot.id,
-    //           ...snapShot.data() 
-    //       })
-    //         const { currentUser } = this.props;
-    //         if (currentUser.displayName) {
-    //           alert(`Welcome to you ${currentUser.displayName}`)}
-    //           console.log('current', currentUser.displayName)
-    //     })
-    //   } 
-
-    //   setCurrentUser (userAuth);
-    // });
-  }
-
 
   componentWillUnmount() {
     this.unsubscribeFromAuth();
@@ -69,11 +42,8 @@ const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser
 })
 
-const mapDispatchToProps = dispatch => ({
-  googleSignInStart: user => dispatch(googleSignInStart(user))
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
 
 
 
