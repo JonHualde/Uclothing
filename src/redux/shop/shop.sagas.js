@@ -13,8 +13,6 @@ import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/fireb
 import shopActionTypes from './shop.types';
 
 export function* fetchCollectionAsync() {
-    yield console.log("I am fired");
-
     try {
     const collectionRef = firestore.collection('collections');
     const snapshot = yield collectionRef.get();
@@ -31,4 +29,10 @@ export function* fetchCollectionStart() {
         shopActionTypes.FETCH_COLLECTIONS_START, 
         fetchCollectionAsync
     );
+}
+
+export function* shopSagas() {
+    yield call([
+        call(fetchCollectionStart)
+    ])
 }

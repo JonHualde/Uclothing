@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { selectCurrentUser } from '../../redux/user/user.selector.js';
+import { signedOutStart } from '../../redux/user/user.actions.js';
 
 import './header.styles.scss';
 import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './header.styles';
@@ -8,9 +9,8 @@ import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from './
 import CartIcon from '../cart/cart-icon/cart-icon.component.jsx';
 import CartDropdown from '../cart/cart-dropdown/cart-dropdown.component';
 import { ReactComponent as Logo } from '../../assets/original.svg';
-import { auth } from '../../firebase/firebase.utils.js';
 
-const Header = ({ currentUser }) => (
+const Header = ({ currentUser, signedOutStart }) => (
     <HeaderContainer>
         <LogoContainer to='/'>
             <Logo alt='logo' src={Logo} className='logo' />
@@ -20,7 +20,7 @@ const Header = ({ currentUser }) => (
             <OptionLink to='/contact'> CONTACT </OptionLink>
             { currentUser ?
             <OptionLink as='div'
-                onClick={() => SignedOut()} > SIGN OUT </OptionLink>
+                onClick={signedOutStart} > SIGN OUT </OptionLink>
                 :
             <OptionLink to='/sign-in'> SIGN IN </OptionLink> }
             <CartIcon/>
@@ -29,14 +29,18 @@ const Header = ({ currentUser }) => (
     </HeaderContainer>
 )
 
-function SignedOut() {
-    alert('You have been successfully logged out.')
-    auth.signOut()
-}
+// function SignedOut() {
+//     console.log('hello')
+//     userSignedOut();
+// }
 
 const mapStateToProps = state => ({
     currentUser: selectCurrentUser(state)
 })
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+    signedOutStart: () => dispatch(signedOutStart())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
 

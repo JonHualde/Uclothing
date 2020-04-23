@@ -24,5 +24,8 @@ export const addOneItemFromCart = item => ({
     payload: item
 })
 
+export const clearOutBasketWhenLoggedOut = () => ({
+    type: cartActionsTypes.CLEAR_OUT_BASKET
+})
 
  
