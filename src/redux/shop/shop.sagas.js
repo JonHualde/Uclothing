@@ -1,7 +1,8 @@
 import { 
     takeLatest, 
     call,
-    put 
+    put, 
+    all 
     } from 'redux-saga/effects'; //Non blocking call
 
 import { 
@@ -32,7 +33,7 @@ export function* fetchCollectionStart() {
 }
 
 export function* shopSagas() {
-    yield call([
+    yield all([
         call(fetchCollectionStart)
     ])
 }
