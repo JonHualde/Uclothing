@@ -71,6 +71,43 @@ export default connect(mapStateToProps, mapDispatchToProps)(App);
 // `;
 // COMPONENT IS NOW ABLE TO LEVERAGE PROPS! 
 
+
 // --------- FUNCTION TO PUSH DATA TO FIREBASE IF NEEDED --------- // 
 // addCollectionAndDocuments('collections', collections.map(
 //        ({title, items})  =>  ({title, items}) ));
+
+
+// -------------------- Quick recap on Hooks --------------------
+// ComponentDidMount
+// ----- Class -----
+// componentDidMount() {
+//     console.log('I just mounted!');
+// }
+// ----- Hooks -----
+// useEffect(() => {
+//     console.log('I just mounted!');
+// }, [])
+
+
+// ComponentWillUnmount
+// ----- Class -----
+// componentWillUnmount() {
+//     console.log('I am unmounting');
+// }
+// ----- Hooks -----
+// useEffect(() => {
+//     return () => console.log('I am unmounting');
+// }, [])
+
+
+// ComponentWillReceiveProps
+// ----- Class -----
+// componentWillReceiveProps(nextProps) {
+//     if (nextProps.count !== this.props.count) {
+//         console.log('count changed', nextProps.count);
+//     }
+// }
+// ----- Hooks -----
+// useEffect(() => {
+//     console.log('count changed', props.count);
+// }, [props.count])
