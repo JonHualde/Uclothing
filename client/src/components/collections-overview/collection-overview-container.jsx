@@ -16,3 +16,4 @@ const CollectionsOverviewContainer = compose(
 )(CollectionOverview)
 
 export default CollectionsOverviewContainer;
+
