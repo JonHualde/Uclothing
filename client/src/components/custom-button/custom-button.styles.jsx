@@ -17,11 +17,15 @@ const invertedButtonStyles = css`
     color: black;
     border: 1px solid black;
 
-    &:hover {
-      background-color: black;
-      color: white;
-      border: none;
+    @media screen and (min-width: 800px) {
+        &:hover {
+        background-color: black;
+        color: white;
+        border: none;
+        }
     }
+
+    
 `;
 const NonInvertedButtonStyles = css`
     background-color: black;
@@ -39,10 +43,12 @@ const NonInvertedButtonStyles = css`
 const colorBlue = css`
     background-color: #4285f4;
     border: none;
+    color: white;
 
     &:hover {
       background-color: white;
       border: 1px solid black;
+      color: black;
     }
 `;
     const colorRed = css`

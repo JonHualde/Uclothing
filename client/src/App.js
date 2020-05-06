@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selector';
 import { checkUserSession } from './redux/user/user.actions.js';
 
-import './App.css';
+import { GlobalStyle } from './global.styles';
 //import styled from 'styled-components'; IMPORT STYLED COMPONENTS 
 
 import Homepage from './pages/homepage/homepage.component.jsx';
@@ -22,6 +22,7 @@ const App = ({ checkUserSession, currentUser}) => {
 
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path='/' component={Homepage} />

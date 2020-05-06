@@ -1,4 +1,9 @@
 .collections-overview {
     display: flex;
     flex-direction: column;
+    padding: 0px;
+
+    @media screen and (max-width: 800px) {
+        padding: 20px;
+    }
 }

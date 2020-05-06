@@ -30,6 +30,16 @@
     top: 65%;
     display: none;
     font-family: 'Open Sans Condensed';
+
+    @media screen and (max-width: 800px) {
+      display: block;
+
+      &:checked {
+        opacity: 1;
+        background-color: blue;
+      }
+      
+    }
   }
 
   &:hover {
@@ -51,6 +61,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     font-size: 18px;
+    text-align: left;
 
     .name {
       width: 80%;

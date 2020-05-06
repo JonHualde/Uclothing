@@ -2,8 +2,11 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 10px 0px;
+    padding: 50px 50px;
     flex-direction: row;
     justify-content: space-around;
-    margin-top: 30px;
+
+    @media screen and (max-width: 500px) {
+        padding: 15px 15px;
+    }
 }

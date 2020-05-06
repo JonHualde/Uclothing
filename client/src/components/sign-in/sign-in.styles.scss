@@ -2,13 +2,35 @@
     width: 380px;
     display: flex;
     flex-direction: column;
+    margin: 10px;
+    margin-bottom: 40px;
+
+    @media screen and (max-width: 940px) {
+        width: 500px;
+        border-bottom: 1px dashed black;
+        padding-bottom: 50px;
+    }
 
     .title {
         margin: 10px 0;
+        font-size: 32px;
     }
 }
 
 .buttons {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 800px) {
+        justify-content: space-evenly;
+    }
+}
+
+.button {
+    @media screen and (max-width: 385px) {
+        &:last-child {
+            margin-top: 15px;
+        }
+    }
 }

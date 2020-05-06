@@ -3,16 +3,23 @@
   flex-direction: column;
   margin-bottom: 30px;
   width: 100%;
+  justify-content: center;
+  text-align: center;
 
   .title {
-    font-size: 28px;
+    font-size: 36px;
     margin-bottom: 25px;
+    font-family: 'Nanum Myeongjo', serif;
+
+    @media screen and (max-width: 800px) {
+      font-size: 30px;
+    }
   }
 
   .preview {
     display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr) ) ;
-      grid-gap: 10px;
+      grid-gap: 12px;
   }
 
   &:last-child {
