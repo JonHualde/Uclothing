@@ -7,7 +7,7 @@ const Footer = () => {
         <div className='footer_container'>
             <div className='upper_part'>
                 <div className='upper_text'>
-                    <a href='/' target='_blank'>Contact</a>
+                    <a href='/contact'>Contact</a>
                     <p>|</p>
                     <a href='https://jonhualde.github.io/' target='_blank'>Website of the owner</a>
                     <p>|</p>

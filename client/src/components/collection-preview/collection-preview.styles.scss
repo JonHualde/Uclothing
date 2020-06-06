@@ -5,11 +5,20 @@
   width: 100%;
   justify-content: center;
   text-align: center;
+  padding: 0 2vw;
 
   .title {
     font-size: 36px;
-    margin-bottom: 25px;
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Quicksand', sans-serif;  
+    background: linear-gradient(to right, #07617d, #2e383f 70%);
+    text-transform: uppercase;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    border-bottom: 1px solid #07617d;
+    width: 20%;
+    margin: 3.5vh auto;
+
 
     @media screen and (max-width: 800px) {
       font-size: 30px;
@@ -20,6 +29,10 @@
     display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr) ) ;
       grid-gap: 12px;
+
+      @media screen and (min-width: 1200px){
+        grid-gap: 24px;
+      }
   }
 
   &:last-child {

@@ -21,6 +21,10 @@
     background-size: cover;
     background-position: center;
     margin-bottom: 10px;
+
+    @media screen and (min-width: 1200px){
+      height: 400px;
+    }
   }
 
   .custom-button {

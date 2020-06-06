@@ -1,0 +1,22 @@
+.contact_us {
+    min-height: 75vh;
+    width: 100%;
+    padding: 2vw;
+}
+
+.contact_text{
+    padding-left: 2vw;
+}
+
+.contact_text > p {
+    font-size: 24px;
+}
+
+.contact_text > h1 {
+    font-size: 45px;
+}
+
+.contact_text > p > u {
+    color: #4f5e7f;
+    font-weight: 700;
+}
