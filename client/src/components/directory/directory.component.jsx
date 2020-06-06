@@ -7,7 +7,6 @@ import './directory.styles.scss';
 import MenuItem from '../menu-item/menu-item.component.jsx';
 
 const Directory = ({ sections }) => {
-    console.log(sections, 'HERE')
     return (
         <>
         <div className='text_title_container'>

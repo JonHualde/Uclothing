@@ -10,6 +10,7 @@ import { GlobalStyle } from './global.styles';
 
 import Homepage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
+import ContactPage from './pages/contactPage/contactPage.component.jsx'
 import Header from './components/header/header.component.jsx';
 import Footer from './components/footer/footer.component.jsx'
 import SignInAndSignUpPage from './pages/Sign-in-and-sign-up/Sign-in-and-sign-up.component.jsx';
@@ -28,6 +29,7 @@ const App = ({ checkUserSession, currentUser}) => {
       <Switch>
         <Route exact path='/' component={Homepage} />
         <Route path='/shop' component={ShopPage} />
+        <Route exact path='/contact' component={ContactPage} />
         <Route exact path='/sign-in' 
           render={ () => currentUser 
           ? ( <Redirect to='/' /> ) 

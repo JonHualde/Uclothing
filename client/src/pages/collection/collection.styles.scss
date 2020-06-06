@@ -5,6 +5,7 @@
     min-height: 80vh;
     justify-content: center;
     text-align: center;
+    align-items: center;
 
     @media screen and (max-width: 800px) {
       padding: 20px;
@@ -13,18 +14,35 @@
     .title {
       font-size: 36px;
       margin-bottom: 25px;
-      font-family: 'Nanum Myeongjo', serif;
+      
+      font-family: 'Quicksand', sans-serif;  
+      background: linear-gradient(to right, #07617d, #2e383f 70%);
+      text-transform: uppercase;
+      -webkit-background-clip: text;
+    	-webkit-text-fill-color: transparent; 
 
       @media screen and (max-width: 800px) {
         font-size: 30px;
       }
+
+      @media screen and (min-width: 1200px){
+      }
     }
   
     .items {
+      padding: 2vh;
+      width: 90%;
       display: grid;
+      justify-items: center;
+      align-content: center;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr) ) ;
       grid-gap: 12px;
-  
+      
+      @media screen and (min-width: 1200px){
+        grid-gap: 24px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr) ) ;        
+      }
+
       & .collection-item {
         margin-bottom: 30px;
         width: 100%;

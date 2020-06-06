@@ -6,7 +6,7 @@ import CollectionItem from '../collection-item/collection-item.component';
 
 const CollectionPreview = ({ title, routeName, items, history }) => (
     <div className='collection-preview'>
-        <h1 className='title' onClick={ () => history.push(`/shop/${routeName}`) }>
+        <h1 className='title border-animation' onClick={ () => history.push(`/shop/${routeName}`) }>
             {title.toUpperCase()}
         </h1>
         <div className='preview'>
