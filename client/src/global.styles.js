@@ -1,12 +1,18 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+    html, body {
+        height: 100vh;
+    }
+    
     body {
         font-family: 'Open Sans Condensed';
-        padding: 10px 20px;
-
+        padding: 0px 0px;
+        background: #ececeb;
+        min-height: 100%;
+ 
         @media screen and (max-width: 800px) {
-            padding: 5px;
+            padding: 0px;
         }
     }
 

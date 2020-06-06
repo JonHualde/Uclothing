@@ -10,7 +10,7 @@ import { ReactComponent as ShoppingIcon } from '../../../assets/shopping-bag.svg
 
 const CartIcon = ({ toggleCart, itemQuantity }) => (
     <div className='cart-icon' onClick={toggleCart} >
-        <ShoppingIcon className='shopping-icon' />
+        <ShoppingIcon style={{fill: '#ececeb'}} className='shopping-icon' />
         <span className='item-count'>
             {itemQuantity}
         </span>

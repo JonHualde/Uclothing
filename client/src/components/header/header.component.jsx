@@ -14,6 +14,7 @@ const Header = ({ currentUser, signedOutStart }) => (
     <HeaderContainer>
         <LogoContainer to='/'>
             <Logo alt='logo' src={Logo} className='logo' />
+            <p className='logo_text'>U-Clothing</p>
         </LogoContainer>
         <OptionsContainer>
             <OptionLink to='/shop'> SHOP </OptionLink>

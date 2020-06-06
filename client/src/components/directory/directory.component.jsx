@@ -9,6 +9,11 @@ import MenuItem from '../menu-item/menu-item.component.jsx';
 const Directory = ({ sections }) => {
     console.log(sections, 'HERE')
     return (
+        <>
+        <div className='text_title_container'>
+            <h2 className='main_title'>U-Clothing </h2>
+            <p className='text'>Check out our latest releases</p>
+        </div>
         <div className="directory-menu">
             {
                 sections.map(({ id, ...otherSectionProps }) => 
@@ -16,6 +21,7 @@ const Directory = ({ sections }) => {
                 )
             }
         </div>
+        </>
     )
 }
 

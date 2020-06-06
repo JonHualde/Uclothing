@@ -11,6 +11,7 @@ import { GlobalStyle } from './global.styles';
 import Homepage from './pages/homepage/homepage.component.jsx';
 import ShopPage from './pages/shop/shop.component.jsx';
 import Header from './components/header/header.component.jsx';
+import Footer from './components/footer/footer.component.jsx'
 import SignInAndSignUpPage from './pages/Sign-in-and-sign-up/Sign-in-and-sign-up.component.jsx';
 import CheckoutPage from './pages/checkoutpage/checkout.component.jsx';
 
@@ -21,7 +22,7 @@ const App = ({ checkUserSession, currentUser}) => {
   }, [checkUserSession]);
 
   return (
-    <div>
+    <div style={{ height: '100vh' }}>
       <GlobalStyle />
       <Header />
       <Switch>
@@ -34,6 +35,7 @@ const App = ({ checkUserSession, currentUser}) => {
         }/>
         <Route exact path='/checkout' component={CheckoutPage}/>
       </Switch>
+      <Footer />
     </div>
   );
 }
