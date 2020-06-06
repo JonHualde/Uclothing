@@ -6,7 +6,7 @@ Online clothing store, with sign in/sign up and payment method included.
 2- cd client + yarn start to initiate the development server
 
 ### Prerequisites
-Node.js installed on your computer.
+Node.js installed on your computer
 
 ### Installing
 yarn install to get all the necessary dependencies before to start.
