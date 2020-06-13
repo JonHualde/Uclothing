@@ -20,7 +20,7 @@ React - Javascript library
 Redux/Saga - State management and asynchronous calls handling
 Firebase - Authentication and database storage
 React Router - To manage the routing
-Stripe - Payment method with server.js
+Stripe - Payment method integrate with the package react-stripe-element
 JS styled-component and SCSS - Styling and designing the component
 Hooks - Implemented in some component 
 
