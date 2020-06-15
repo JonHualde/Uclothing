@@ -22,5 +22,4 @@ Firebase - Authentication and database storage
 React Router - To manage the routing
 Stripe - Payment method integrate with the package react-stripe-element
 JS styled-component and SCSS - Styling and designing the component
-Hooks - Implemented in some component 
-
+Hooks - Implemented in some component .
