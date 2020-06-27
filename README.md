@@ -2,7 +2,7 @@
 Online clothing store, with sign in/sign up and payment method included.
 
 ## Getting Started
-1- Git clone https://github.com/JonHualde/Uclothing.git on your computer   
+1- Git clone https://github.com/JonHualde/Uclothing.git on your computer. 
 2- cd client + yarn start to initiate the development server
 
 ### Prerequisites
