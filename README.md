@@ -1,5 +1,5 @@
 # U-CLOTHING
-Online clothing store, with sign in/sign up and payment method included.
+Online clothing store, with sign in/sign up and payment method included
 
 ## Getting Started
 1- Git clone https://github.com/JonHualde/Uclothing.git on your computer
