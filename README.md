@@ -9,7 +9,7 @@ Online clothing store, with sign in/sign up and payment method included
 Node.js installed on your computer.
 
 ### Installing
-yarn install to get all the necessary dependencies before to start.
+yarn install to get all the necessary dependencies before to start
 
 ## Deployment
 After yarn build, simply take the build folder and upload it on your
