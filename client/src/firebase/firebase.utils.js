@@ -1,24 +1,24 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import firebase from "firebase/app";
+import "firebase/firestore";
+import "firebase/auth";
 
 const config = {
-    apiKey: "AIzaSyDqRfbbrMv8qSIX_OP6uENhAizasR6z9H0",
-    authDomain: "crown-clothing-225a8.firebaseapp.com",
-    databaseURL: "https://crown-clothing-225a8.firebaseio.com",
-    projectId: "crown-clothing-225a8",
-    storageBucket: "crown-clothing-225a8.appspot.com",
-    messagingSenderId: "494551811377",
-    appId: "1:494551811377:web:d6d791362ff5a8c92e1c10"
-  };
+  apiKey: "AIzaSyDqRfbbrMv8qSIX_OP6uENhAizasR6z9H0",
+  authDomain: "crown-clothing-225a8.firebaseapp.com",
+  databaseURL: "https://crown-clothing-225a8.firebaseio.com",
+  projectId: "crown-clothing-225a8",
+  storageBucket: "crown-clothing-225a8.appspot.com",
+  messagingSenderId: "494551811377",
+  appId: "1:494551811377:web:d6d791362ff5a8c92e1c10",
+};
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
-  if (!userAuth) return 
-  
-  const userRef = firestore.doc(`users/${userAuth.uid}`)
-  const snapShot = await userRef.get()
+  if (!userAuth) return;
 
-  if(!snapShot.exists) {
+  const userRef = firestore.doc(`users/${userAuth.uid}`);
+  const snapShot = await userRef.get();
+
+  if (!snapShot.exists) {
     const { displayName, email } = userAuth;
     const createAt = new Date();
 
@@ -27,54 +27,57 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         createAt,
         displayName,
         email,
-        ...additionalData
-      })
+        ...additionalData,
+      });
     } catch (error) {
-      console.log("error creating user", error)
+      console.log("error creating user", error);
     }
   }
   return userRef;
-}
+};
 
 export const convertCollectionsSnapshotToMap = (collections) => {
-    const transformedCollection = collections.docs.map( doc => {
-      const { title, items } = doc.data();
-      
-      return {
-        routeName: encodeURI(title.toLowerCase()),
-        id: doc.id,
-        title, 
-        items
-      }
-    });
-  
+  const transformedCollection = collections.docs.map((doc) => {
+    const { title, items } = doc.data();
+
+    return {
+      routeName: encodeURI(title.toLowerCase()),
+      id: doc.id,
+      title,
+      items,
+    };
+  });
+
   return transformedCollection.reduce((accumulator, collection) => {
     accumulator[collection.title.toLowerCase()] = collection;
-      return accumulator;
-  },{})
-}
+    return accumulator;
+  }, {});
+};
 
 export const getCurrentUser = () => {
   return new Promise((resolve, reject) => {
-    const unsuscribe = auth.onAuthStateChanged(userAuth => {
+    const unsuscribe = auth.onAuthStateChanged((userAuth) => {
       unsuscribe();
       resolve(userAuth);
-    }, reject)
+    }, reject);
   });
-}
+};
 
 firebase.initializeApp(config);
 
+// Auth object returned bu auth method
 export const auth = firebase.auth();
+
+// Access to the database
 export const firestore = firebase.firestore();
 
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
-googleProvider.setCustomParameters({ prompt: 'select_account' });
+googleProvider.setCustomParameters({ prompt: "select_account" });
 export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export default firebase;
 
-// -------------- USE THIS FUNCTION TO PUSH DATA TO FIREBASE ---------------- // 
+// -------------- USE THIS FUNCTION TO PUSH DATA TO FIREBASE ---------------- //
 // export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
 //   const collectionRef = firestore.collection(collectionKey);
 
